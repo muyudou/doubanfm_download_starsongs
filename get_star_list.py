@@ -29,7 +29,6 @@ def getlist():
     song_sum = 0
     song_info_dir = {}
     pat = re.compile("(\d+)")
-    song_sid_info_file = open(download_path+"/sid_info", 'w')
     for i in range(13):
         value = (ck, spbid, i*15)
         url = formaturl % value
@@ -44,9 +43,7 @@ def getlist():
         for song in songs:
             subject_id = pat.search(song['path']).group(1)
             song_info_dir[song['id'] ] = (subject_id, song['title'])
-        song_sid_info_file.write(str(song_info_dir))
     print("总共得到%d首歌的信息,这个可能跟豆瓣统计红心歌曲总数不一致，可能是豆瓣的一个bug...因为你的列表确实是只有这么多歌曲了..." % song_sum)
-    song_sid_info_file.close()
     return song_sum, song_info_dir
 
 def main():
