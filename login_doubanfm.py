@@ -2,6 +2,7 @@ from urllib import request, parse, error
 from http import cookiejar
 import json
 import os
+import platform
 
 #设置cookie自动管理
 cj = cookiejar.CookieJar()
@@ -15,7 +16,12 @@ headers = {
      'Host':'douban.fm'
     }
 
-download_path='./starsongs/'
+#判断运行平台
+sysstr = platform.system()
+if sysstr == 'Windows':
+    download_path = '.\\starsongs\\'
+elif sysstr == 'Linux':
+    download_path='./starsongs/'
 
 #请求验证码图片id和获得验证码图片不需要请求头，可以直接获得
 def getdata():
