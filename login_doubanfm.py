@@ -2,6 +2,7 @@ from urllib import request, parse, error
 from http import cookiejar
 import json
 import os
+import platform
 
 #设置cookie自动管理
 cj = cookiejar.CookieJar()
@@ -15,7 +16,12 @@ headers = {
      'Host':'douban.fm'
     }
 
-download_path='./starsongs/'
+#判断运行平台
+sysstr = platform.system()
+if sysstr == 'Windows':
+    download_path = '.\\starsongs\\'
+elif sysstr == 'Linux':
+    download_path='./starsongs/'
 
 #请求验证码图片id和获得验证码图片不需要请求头，可以直接获得
 def getdata():
@@ -35,7 +41,7 @@ def getdata():
     if os.path.exists(download_path) == False:
         os.mkdir(download_path)
     captcha_pic_url = "http://douban.fm/misc/captcha?size=m&id=%s" % captcha_id
-    request.urlretrieve(captcha_pic_url, download_path+"captchapic")
+    request.urlretrieve(captcha_pic_url, download_path+"captchapic.jpg")
     captcha = input("请输入验证码：")
     data['captcha_solution'] = captcha
     return data
@@ -65,9 +71,9 @@ def login():
         else:
             print("输入错误！")      
 
-def main():
+def test():
     login()
 
-if __name__=='__main__':main()
+if __name__=='__main__':test()
 
 
