@@ -1,5 +1,9 @@
-注意：代码平台是Ubuntu14.04 python版本是3.4
-在Windows下的话会有路径错误，还木有测试，这个慢慢修改～～～
+注意：代码平台是Ubuntu14.04 python版本是3.4,安装的额外的包是beautifulsoup4.3
+
+在Linux下，如果安装了python3, bs4包也安装了，则可以下载源代码，在源代码目录下输入python3 doubanfm.py
+即可运行，可以下载歌曲
+
+在windows下，也是安装python3.4, bs4包，在GUI下，直接运行；或在cmd下运行python doubanfm.py,在命令行下需要将python安装目录写入系统环境变量中，具体请google或baidu。
 
 1 输入用户名，密码，验证码实现豆瓣fm自动登录。
 
