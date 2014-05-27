@@ -38,7 +38,7 @@ def down_song(sid, ssid):
     song = playlist['song'][0]
     song_singer = valid_name(song['artist'])
     songname = "%s(%s)" % (valid_name(song['title']), song_singer)  
-    songpath = download_path+'/'+songname+'.mp3'
+    songpath = download_path+songname+'.mp3'
     if sid == song['sid']:
         if os.path.exists(songpath):
 	        print("歌曲已经存在")
