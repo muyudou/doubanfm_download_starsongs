@@ -43,14 +43,14 @@ def down_song(sid, ssid):
         if os.path.exists(songpath):
 	        print("歌曲已经存在")
         else:
-            print(("下载歌曲：%s\t歌手是:%s\tloading...")%(songname,
+            print(("下载歌曲：%s\t歌手是:%s\tloading...")%(valid_name(song['title']),
 			song_singer)) 
             try:
                 request.urlretrieve(song['url'], songpath)
             except error.URLError as e:
-                print("下载%s-%s 歌曲发生异常，下载失败！" % (songname, song_singer), e)
+                print("下载%s歌曲发生异常，下载失败！" % songname, e)
             else:
-                print("'%s'下载完成" % songname)
+                print("%s下载完成" % songname)
     else:
         print("获得的列表错误！")
  
