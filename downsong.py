@@ -3,9 +3,8 @@ import os
 from login_doubanfm import *
 
 def valid_name(filename):
-    invalid_chars = "/\\*()"
-    table = str.maketrans(invalid_chars, len(invalid_chars) * ' ')
-    return filename.translate(table)
+    invalid_chars = "/\\*() "
+    return filename.encode().translate(None, b'?~/\\*-()').decode()
 
 #根据专辑页面得到歌曲的ssid
 def get_song_ssid(sid, sub_path, song_name):
