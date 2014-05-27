@@ -43,7 +43,7 @@ def getlist():
         for song in songs:
             subject_id = pat.search(song['path']).group(1)
             song_info_dir[song['id'] ] = (subject_id, song['title'])
-    print("总共得到%d首歌的信息,这个可能跟豆瓣统计红心歌曲总数不一致，可能是豆瓣的一个bug...因为你的列表确实是只有这么多歌曲了..." % song_sum)
+    print("总共得到%d首歌的信息" % song_sum)
     return song_sum, song_info_dir
 
 def main():
