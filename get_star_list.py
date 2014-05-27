@@ -40,7 +40,7 @@ def getlist():
         context = json.loads(request.urlopen(req).read().decode('utf-8'))
         songs = context['songs']
         per_page_songcnt = len(songs)
-        if per_page_songcnt != 0:
+        if songs:
             print("第%d页列表得到%d首歌" % (page+1, per_page_songcnt))
             page += 1
         else:
